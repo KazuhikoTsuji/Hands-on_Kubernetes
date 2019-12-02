@@ -1,0 +1,7 @@
+#Step1
+kubectl expose deployment nginx --name nginx-service --port=80 --target-port=80 --type=NodePort --dry-run -o yaml
+kubectl expose deployment nginx --name nginx-service --port=80 --target-port=80 --type=NodePort --dry-run -o yaml > nginx-service.yaml
+ls
+kubectl apply -f nginx-service.yaml
+kubectl get services
+ip a | grep eth0
