@@ -1,0 +1,36 @@
+#Step1
+kubectl run nginx --image=nginx:1.17.4 --restart=Always --replicas=2 --dry-run -o yaml
+kubectl run nginx --image=nginx:1.17.4 --restart=Always --replicas=2 --dry-run -o yaml > nginx-deployment.yaml
+ls
+kubectl apply -f nginx-deployment.yaml
+kubectl get deployment
+kubectl get replicasets
+kubectl get pods
+#Step2
+kubectl get deploy nginx -o yaml --export
+kubectl get replicaset nginx-<hash> -o yaml --export
+kubectl get pods nginx-<hash> -o yaml --export
+#Step3
+kubectl get pods
+kubectl delete pod nginx-<hash>
+kubectl get pods
+#Step4-①
+kubectl edit deployment nginx
+  replicas: 4
+:wq
+kubectl get deployment
+kubectl get replicaset
+kubectl get pods
+#Step4-②
+vi nginx-deployment.yaml
+  replicas: 4
+:wq
+kubectl apply -f nginx-deployment.yaml
+kubectl get deploy
+kubectl get replicaset
+kubectl get pods
+#Step4-③
+kubectl get deployment
+kubectl scale deployment/nginx --replicas=4
+kubectl get deployment
+kubectl get pods
