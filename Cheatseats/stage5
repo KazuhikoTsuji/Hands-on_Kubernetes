@@ -1,0 +1,28 @@
+##Client
+while true; do curl http://<IP-Addrss any-node>:<NodePort>; sleep 3; done
+
+##K8s Cluster
+#Step1
+kubectl get pods
+kubectl get deployment
+kubectl get replicaset
+kubectl rollout history deployment nginx
+#Step2
+kubectl set image deploy nginx nginx=kazuhikotsuji/nginx:1.13
+kubectl rollout status deployment nginx
+kubectl rollout history deployment nginx
+kubectl get deployment
+kubectl get replicaset
+kubectl get pods
+#Step3
+kubectl set image deploy nginx nginx=kazuhikotsuji/nginx:1.17
+kubectl rollout status deployment nginx
+kubectl rollout history deployment nginx
+kubectl get deployment
+kubectl get replicaset
+kubectl get pods
+#Step4
+kubectl rollout undo deployment nginx
+kubectl rollout status deployment nginx
+kubectl get pods
+kubectl rollout undo deploy nginx --to-revision=2
