@@ -8,14 +8,14 @@ kubectl get deployment
 kubectl get replicaset
 kubectl rollout history deployment nginx
 #Step2
-kubectl set image deploy nginx nginx=kazuhikotsuji/nginx:1.13
+kubectl set image deployment nginx nginx=kazuhikotsuji/nginx:1.13
 kubectl rollout status deployment nginx
 kubectl rollout history deployment nginx
 kubectl get deployment
 kubectl get replicaset
 kubectl get pods
 #Step3
-kubectl set image deploy nginx nginx=kazuhikotsuji/nginx:1.17
+kubectl set image deployment nginx nginx=kazuhikotsuji/nginx:1.17
 kubectl rollout status deployment nginx
 kubectl rollout history deployment nginx
 kubectl get deployment
